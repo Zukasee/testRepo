@@ -74,7 +74,8 @@ export default function App() {
                   className="w-16 h-16 rounded-full"
                 />
                 <div className="ml-4 text-white">
-                  {tg.initDataUnsafe?.user?.photo_url}
+                  <h2 className="text-xl font-semibold">{tg.initDataUnsafe?.user?.photo_url}</h2>
+                  <h2 className="text-xl font-semibold">{tg.initDataUnsafe?.chat?.photo_url}</h2>
                   <h2 className="text-xl font-semibold">{tg.initDataUnsafe?.user?.username}</h2>
                   <p className="text-yellow-400 text-lg">Lv. 1</p>
                 </div>
