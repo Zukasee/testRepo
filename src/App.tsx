@@ -23,6 +23,9 @@ interface TelegramWebApp {
       level: string; // Добавим уровень пользователя
       progress: number; // Добавим прогресс
     };
+    chat?: {
+      photo_url: string;
+    }
   };
 }
 
@@ -66,14 +69,14 @@ export default function App() {
             <div className="flex flex-col items-center w-full h-full justify-between">
               <div className="flex items-center justify-start w-full mb-4">
                 <img 
-                  src={tg.initDataUnsafe?.user?.photo_url} 
+                  src={tg.initDataUnsafe?.chat?.photo_url} 
                   alt={tg.initDataUnsafe?.user?.username}
                   className="w-16 h-16 rounded-full"
                 />
                 <div className="ml-4 text-white">
                   {tg.initDataUnsafe?.user?.photo_url}
                   <h2 className="text-xl font-semibold">{tg.initDataUnsafe?.user?.username}</h2>
-                  <p className="text-yellow-400 text-lg">{tg.initDataUnsafe?.user?.level}</p>
+                  <p className="text-yellow-400 text-lg">Lv. 1</p>
                 </div>
               </div>
               <div className="w-full mb-4">
