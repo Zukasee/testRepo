@@ -1,12 +1,20 @@
 import { FC } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { useGetMatchesQuery } from '../../../shared/api';
 import dayjs from 'dayjs';
+import { useSwipeable } from 'react-swipeable';
 
 const Matches: FC = () => {
     const location = useLocation();
+    const navigate = useNavigate()
     const { competitionId } = location.state;
     const { data: matches, isFetching } = useGetMatchesQuery(competitionId);
+
+    const handleSwipe = useSwipeable({
+        onSwipedRight: () => navigate(-1),
+        preventScrollOnSwipe: true,
+        trackMouse: true
+    })
 
     if (isFetching) {
         return <p>Loading...</p>;
@@ -17,7 +25,7 @@ const Matches: FC = () => {
     }
 
     return (
-        <div className="container mx-auto py-8">
+        <div {...handleSwipe} className="container mx-auto py-8">
             <h1 className="text-2xl font-bold text-center">Matches</h1>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-4">
                 {matches.matches.map((match: any) => (
