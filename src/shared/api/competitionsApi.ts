@@ -10,6 +10,9 @@ export const competitionsApi = createApi({
         postUserData: builder.mutation({
             query: (initDataUnsafe) => ({
                 method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
                 body: initDataUnsafe,
                 url: 'https://bet-bot-server-8951b4dabcc5.herokuapp.com/api/v1/users/verify'
             })
