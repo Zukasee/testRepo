@@ -25,3 +25,7 @@
   background-color: #007bff;
   color: white;
 }
+
+.swiper-autoheight, .swiper-autoheight .swiper-slide {
+  min-height: 100vh;
+}
