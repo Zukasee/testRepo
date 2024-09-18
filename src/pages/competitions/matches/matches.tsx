@@ -1,7 +1,6 @@
 import { FC } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useGetMatchesQuery } from '../../../shared/api';
-import dayjs from 'dayjs';
 import { useSwipeable } from 'react-swipeable';
 import Loader from '../../../shared/helpers/Loader';
 import MatchPreview from './matchPreview';
