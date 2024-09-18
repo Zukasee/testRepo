@@ -1,4 +1,5 @@
 interface TelegramWebApp {
+    initData: any;
     initDataUnsafe: {
        user?: {
           username: string;

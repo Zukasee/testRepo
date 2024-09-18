@@ -4,12 +4,18 @@ import 'swiper/css/pagination';
 import { Pagination } from 'swiper/modules';
 import Main from './main/main';
 import Competitions from './competitions/competitions';
-import { useGetCompetitionsQuery } from '../shared/api';
+import { useGetCompetitionsQuery, usePostUserDataMutation } from '../shared/api';
 import Loader from '../shared/helpers/Loader';
+import { useEffect } from 'react';
 
 export default function MainPage() {
-   const { data: competitions, isFetching: isCompetitionsFetching } =
-      useGetCompetitionsQuery({});
+   const { data: competitions, isFetching: isCompetitionsFetching } = useGetCompetitionsQuery({});
+   const [ postUser ] = usePostUserDataMutation()  
+   
+   useEffect(() => {
+      postUser(window.Telegram.WebApp.initData)
+   }, [])
+
 
    const paginationLabels = ['Главная', 'Турниры', 'Избранное', 'Друзья'];
    const pagination = {
