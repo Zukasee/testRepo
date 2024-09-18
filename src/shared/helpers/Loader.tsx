@@ -7,7 +7,7 @@ const Loader = () => {
          <Box sx={{ display: 'flex' }}>
             <CircularProgress />
          </Box>
-         <div className="text-white text-center">Loading...</div>
+         <div className="text-white text-center ml-1">Загрузка...</div>
       </div>
    );
 };

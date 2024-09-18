@@ -11,8 +11,9 @@ export default function MainPage() {
    const { data: competitions, isFetching: isCompetitionsFetching } =
       useGetCompetitionsQuery({});
 
-   const paginationLabels = ['Главная', 'Турниры', 'Друзья'];
+   const paginationLabels = ['Главная', 'Турниры', 'Избранное', 'Друзья'];
    const pagination = {
+      dynamicBullets: true,
       clickable: true,
       renderBullet: function (index: number, className: string) {
          return `<span class="${className} flex items-center justify-center text-sm text-black">
@@ -39,6 +40,10 @@ export default function MainPage() {
 
                <SwiperSlide className="flex items-center justify-center text-xl h-full p-4">
                   <Competitions competitions={competitions} />
+               </SwiperSlide>
+
+               <SwiperSlide className="flex items-center justify-center text-xl h-full p-4">
+                  Избранное
                </SwiperSlide>
 
                <SwiperSlide className="flex items-center justify-center text-xl h-full p-4">
