@@ -5,11 +5,11 @@ import { Pagination } from 'swiper/modules';
 import Main from './main/main';
 import Competitions from './competitions/competitions';
 import { useGetCompetitionsQuery } from '../shared/api';
-import CircularProgress from '@mui/material/CircularProgress';
-import Box from '@mui/material/Box';
+import Loader from '../shared/helpers/Loader';
 
 export default function MainPage() {
-   const { data: competitions, isFetching: isCompetitionsFetching } = useGetCompetitionsQuery({});
+   const { data: competitions, isFetching: isCompetitionsFetching } =
+      useGetCompetitionsQuery({});
 
    const paginationLabels = ['Главная', 'Турниры', 'Друзья'];
    const pagination = {
@@ -24,11 +24,7 @@ export default function MainPage() {
    return (
       <div className="h-screen">
          {isCompetitionsFetching ? (
-         <Box sx={{ display: 'flex' }}>
-            <div className="text-white text-center">Loading...</div>
-            <CircularProgress />
-          </Box>
-            
+            <Loader />
          ) : (
             <Swiper
                slidesPerView={1}
@@ -42,7 +38,7 @@ export default function MainPage() {
                </SwiperSlide>
 
                <SwiperSlide className="flex items-center justify-center text-xl h-full p-4">
-                  <Competitions competitions={competitions}/>
+                  <Competitions competitions={competitions} />
                </SwiperSlide>
 
                <SwiperSlide className="flex items-center justify-center text-xl h-full p-4">
