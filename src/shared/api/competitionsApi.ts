@@ -13,7 +13,7 @@ export const competitionsApi = createApi({
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify(initData),
+                body: JSON.stringify({initData}),
                 url: 'https://bet-bot-server-8951b4dabcc5.herokuapp.com/api/v1/users/verify'
             })
         })
