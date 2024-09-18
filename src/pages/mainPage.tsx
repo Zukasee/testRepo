@@ -16,6 +16,8 @@ export default function MainPage() {
       postUser(window.Telegram.WebApp.initData)
    }, [postUser])
 
+   console.log('window.Telegram.WebApp.initData',window.Telegram.WebApp.initData)
+
 
    const paginationLabels = ['Главная', 'Турниры', 'Избранное', 'Друзья'];
    const pagination = {
@@ -42,6 +44,7 @@ export default function MainPage() {
             >
                <SwiperSlide className="flex flex-col items-center justify-center text-x h-full p-4">
                   <Main />
+                  {window.Telegram.WebApp.initData}
                </SwiperSlide>
 
                <SwiperSlide className="flex items-center justify-center text-xl h-full p-4">
