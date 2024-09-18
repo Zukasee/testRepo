@@ -14,7 +14,7 @@ export default function MainPage() {
    
    useEffect(() => {
       postUser(window.Telegram.WebApp.initData)
-   }, [])
+   }, [postUser])
 
 
    const paginationLabels = ['Главная', 'Турниры', 'Избранное', 'Друзья'];
